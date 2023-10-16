@@ -7,6 +7,11 @@ module.exports = {
     ],
     theme: {
       extend: {},
+      colors: {
+        'violet': '#6B0078',
+        'white': '#ffffff',
+        'gradPurp': '#AF71F1'
+      }
     },
     plugins: [],
   }
