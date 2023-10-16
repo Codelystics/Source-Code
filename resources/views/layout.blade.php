@@ -9,6 +9,23 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&display=swap');
+
+        @keyframes blink {
+            0%, 50%, 100% {
+            opacity: 1;
+            }
+            25%, 75% {
+                opacity: 0;
+            }
+        }
+        .blinking-circle {
+            animation: blink 4s infinite;
+        }
+
+        .gradient-text {
+            background-clip: text;
+            color: transparent;
+        }
     </style>
 
 </head>
@@ -29,10 +46,10 @@
             <div class="flex justify-center items-center w-2/3">
                 <a href=""><img src="{{ asset('logo.svg') }}" alt=""></a>
             </div>
-            <div class="flex justify-evenly items-center w-1/3">
+            <div class="flex justify-evenly items-center w-1/4">
                 <li class="w-1/2 flex justify-center">
-                    <div class="flex flex-row justify-center items-center w-full">
-                        <div class="rounded-full w-4 h-4 bg-white mr-3"></div>
+                    <div class="flex flex-row justify-end items-center w-full">
+                        <div class="rounded-full w-4 h-4 bg-violet mr-3 blinking-circle"></div>
                         <div>Verified</div>
                     </div>
                 </li>

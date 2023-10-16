@@ -10,7 +10,9 @@ module.exports = {
       colors: {
         'violet': '#6B0078',
         'white': '#ffffff',
-        'gradPurp': '#AF71F1'
+        'gradPurp': '#AF71F1',
+        'black': '#000000',
+        'yellow': '#F7AF36',
       }
     },
     plugins: [],
