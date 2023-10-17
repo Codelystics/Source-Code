@@ -62,5 +62,28 @@
     <div class="h=full pt-20">
         @yield('content')
     </div>
+    <div class="p-20 w-full flex flex-row justify-center items-center">
+        <hr class="w-full h-1 mx-4 my-4 bg-white bg-opacity-70 border-0 rounded">
+    </div>
+    <div class="w-full flex flex-row justify-between px-24">
+        <div class="flex flex-col justify-between items-start gap-5 w-1/2">
+            <img src="{{ asset('logo2.svg') }}" alt="">
+            <p class="text-white font-extrabold text-opacity-80 text-3xl">Connecting Coders, Building Bridges</p>
+        </div>
+        <div class="flex flex-col justify-between items-end w-1/2">
+            <p class="text-white font-extrabold text-5xl">Social Media</p>
+            <div class="flex flex-row justify-between items-center w-2/4">
+                <a href=""><img src="{{ asset('facebook.svg') }}" alt=""></a>
+                <a href=""><img src="{{ asset('twitter.svg') }}" alt=""></a>
+                <a href=""><img src="{{ asset('linkedin.svg') }}" alt=""></a>
+                <a href=""><img src="{{ asset('instagram.svg') }}" alt=""></a>
+            </div>
+        </div>
+    </div>
+    <div class="pt-40 mx-40 h-1/4">
+        <div class="bg-plum px-20 pt-10 pb-4 rounded-t-full text-3xl text-white">
+            All Rights Reserved Codelystics 2023 © Codelystics
+        </div>
+    </div>
 </body>
 </html>

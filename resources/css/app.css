@@ -3,7 +3,9 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&display=swap');
 
-body{
+html{
     background: linear-gradient(108deg, #000 -27.88%, #380356 100.52%);
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
+
+

@@ -103,19 +103,46 @@
             <p class="text-4xl text-white text-opacity-80 font-extrabold">Events in our site from 2018 - 2023</p>
         </div>
     </div>
-    <div class="pt-32">
-        <div>
-
-        </div>
-        <div class="flex flex-row">
-            <div>
-
+    <div class="pt-32 w-full h-full px-20">
+        <div class="flex flex-row w-full h-full justify-between items-center text-white">
+            <div class="w-1/3 flex flex-col justify-between items-start bg-plum mx-6 p-20 rounded-md">
+                <div class="flex flex-row text-4xl font-extrabold pb-8">
+                    Virtual Conference
+                </div>
+                <div class="flex flex-row items-end gap-4">
+                    <div class="text-8xl font-extrabold">
+                        650
+                    </div>
+                    <div class="text-3xl">
+                        Events
+                    </div>
+                </div>
             </div>
-            <div>
-
+            <div class="w-1/3 flex flex-col justify-center items-start bg-violet mx-6 p-20 rounded-md">
+                <div class="flex flex-row text-4xl font-extrabold pb-8">
+                    Virtual Conference
+                </div>
+                <div class="flex flex-row items-end gap-4">
+                    <div class="text-8xl font-">
+                        650
+                    </div>
+                    <div class="text-3xl">
+                        Events
+                    </div>
+                </div>
             </div>
-            <div>
-
+            <div class="w-1/3 flex flex-col justify-center items-start bg-lavender mx-6 p-20 rounded-md">
+                <div class="flex flex-row text-4xl font-extrabold pb-8">
+                    Virtual Conference
+                </div>
+                <div class="flex flex-row items-end gap-4">
+                    <div class="text-8xl font-extrabold">
+                        650
+                    </div>
+                    <div class="text-3xl">
+                        Events
+                    </div>
+                </div>
             </div>
         </div>
     </div>

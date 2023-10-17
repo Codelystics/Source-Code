@@ -16,7 +16,7 @@ function animateNumbers(element, start, end, duration) {
 function handleIntersection(entries, observer) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            animateNumbers(document.getElementById('achievement-counter'), 0, 1200, 1000);
+            animateNumbers(document.getElementById('achievement-counter'), 1000, 1200, 0);
             observer.unobserve(entry.target);
         }
     });
