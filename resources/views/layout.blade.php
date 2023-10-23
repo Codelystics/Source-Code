@@ -34,13 +34,13 @@
         <ul class="flex flex-row justify-around h-24 items-center text-white">
             <div class="flex justify-evenly w-1/4">
                 <li>
-                    <a href="">Event</a>
+                    <a href="{{ url('/') }}">Event</a>
                 </li>
                 <li>
-                    <a href="">Bootcamp</a>
+                    <a href="{{ url('/bootcamp') }}">Bootcamp</a>
                 </li>
                 <li>
-                    <a href="">Competition</a>
+                    <a href="{{ url('/competition') }}">Competition</a>
                 </li>
             </div>
             <div class="flex justify-center items-center w-2/3">
@@ -59,7 +59,7 @@
             </div>
         </ul>
     </nav>
-    <div class="h=full pt-20">
+    <div class="h-full pt-20">
         @yield('content')
     </div>
     <div class="p-20 w-full flex flex-row justify-center items-center">

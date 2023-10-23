@@ -6,7 +6,11 @@ module.exports = {
       "./resources/**/*.vue",
     ],
     theme: {
-      extend: {},
+      extend: {
+        backgroundImage: {
+            'bootcampImage': "url('/public/bootcampImage.svg')"
+        }
+      },
       colors: {
         'violet': '#6B0078',
         'plum': '#380356',
