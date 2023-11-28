@@ -26,6 +26,60 @@
             background-clip: text;
             color: transparent;
         }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none; 
+        }
+        .carousel-wrapper {
+            width: 100%; 
+            overflow: hidden;
+        }
+
+        .carousel {
+            display: flex;
+            animation: slide 9s infinite linear;
+        }
+
+        .slide-row {
+            display: flex;
+            overflow: hidden; /* Jika lebar total logo lebih besar, hilangkan overflow */
+            flex-shrink: 0;
+        }
+
+        .slide {
+            filter: grayscale(100%); /* Set default state to grayscale */
+            transition: filter 0.3s ease;
+            flex: 0 0 10%; /* Atur lebar setiap logo, contoh: 20% dari lebar viewport */
+            max-width: 100%;
+            height: auto;
+        }
+
+        .slide:hover {
+            filter: none;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%); /* Geser gambar sejauh 100% lebar viewport */
+            }
+        }
+
+        .slide-from-right {
+            animation: slide-from-right 10s infinite linear;
+        }
+
+        @keyframes slide-from-right {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
     </style>
 
 </head>
