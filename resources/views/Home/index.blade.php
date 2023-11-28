@@ -29,7 +29,8 @@
                 <img src="{{ asset('secondImage.svg') }}" alt="">
             </div>
             <div class="flex flex-col justify-evenly items-end w-2/3 gap-7">
-                <div class="flex flex-row justify-around items-center h-full w-4/5 bg-black bg-opacity-0 border-l-4 border-violet hover:bg-opacity-25 transition ease-in-out duration-300 hover:border-l-4 hover:border-yellow">
+                <div
+                    class="flex flex-row justify-around items-center h-full w-4/5 bg-black bg-opacity-0 border-l-4 border-violet hover:bg-opacity-25 transition ease-in-out duration-300 hover:border-l-4 hover:border-yellow">
                     <div class="flex flex-col justify-center items-center text-white w-1/4 h-full text-3xl">
                         <div>
                             15
@@ -47,7 +48,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-row justify-around items-center h-full w-4/5 bg-black bg-opacity-0 border-l-4 border-violet hover:bg-opacity-25 transition ease-in-out duration-300 hover:border-l-4 hover:border-yellow">
+                <div
+                    class="flex flex-row justify-around items-center h-full w-4/5 bg-black bg-opacity-0 border-l-4 border-violet hover:bg-opacity-25 transition ease-in-out duration-300 hover:border-l-4 hover:border-yellow">
                     <div class="flex flex-col justify-center items-center text-white w-1/4 h-full text-3xl">
                         <div>
                             20
@@ -65,7 +67,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-row justify-around items-center h-full w-4/5 bg-black bg-opacity-0 border-l-4 border-violet hover:bg-opacity-25 transition ease-in-out duration-300 hover:border-l-4 hover:border-yellow">
+                <div
+                    class="flex flex-row justify-around items-center h-full w-4/5 bg-black bg-opacity-0 border-l-4 border-violet hover:bg-opacity-25 transition ease-in-out duration-300 hover:border-l-4 hover:border-yellow">
                     <div class="flex flex-col justify-center items-center text-white w-1/4 h-full text-3xl">
                         <div>
                             16
@@ -91,7 +94,8 @@
             <h2 class="text-5xl font-extrabold text-white pb-10">WE DELIVERED MORE THAN</h2>
             <div class="flex flex-row justify-center items-center pb-10">
                 <div id="achievement-counter" class="text-8xl font-extrabold text-yellow w-2/3">0</div>
-                <div id="achievement-plus" class="flex flex-row justify-end items-center text-8xl text-yellow ml-2 opacity-0 transition-opacity duration-500 w-1/3 item">
+                <div id="achievement-plus"
+                    class="flex flex-row justify-end items-center text-8xl text-yellow ml-2 opacity-0 transition-opacity duration-500 w-1/3 item">
                     <div>
                         +
                     </div>
@@ -105,7 +109,7 @@
     </div>
     <div class="pt-32 w-full h-full">
         <div class="flex flex-row w-full h-full justify-evenly items-center text-white gap-6">
-            <div class="flex flex-col justify-between items-start bg-plum px-12 pb-10 pt-20 rounded-md">
+            <div class="flex flex-col justify-between items-start bg-plum px-20 pb-10 pt-20 rounded-md">
                 <div class="flex flex-row text-4xl font-extrabold pb-8">
                     Virtual Conference
                 </div>
@@ -118,7 +122,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col justify-center items-start bg-violet px-12 pb-10 pt-20 rounded-md">
+            <div class="flex flex-col justify-center items-start bg-violet px-20 pb-10 pt-20 rounded-md">
                 <div class="flex flex-row text-4xl font-extrabold pb-8">
                     Virtual Conference
                 </div>
@@ -131,7 +135,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col justify-center items-start bg-lavender px-12 pb-10 pt-20 rounded-md">
+            <div class="flex flex-col justify-center items-start bg-lavender px-20 pb-10 pt-20 rounded-md">
                 <div class="flex flex-row text-4xl font-extrabold pb-8">
                     Virtual Conference
                 </div>
@@ -146,7 +150,18 @@
             </div>
         </div>
     </div>
+    <div class="flex flex-col w-full text-white gap-4 justify-center items-center">
+        <div class="text-5xl flex flex-row justify-center">
+            UPCOMING EVENT
+        </div>
+        <div>
+            <ul class="flex flex-row py-7 px-5 justify-center gap-40 text-4xl bg-black bg-opacity-50">
+                <li><a data-toggle="tab" href="#menu1">Conference</a></li>
+                <li><a data-toggle="tab" href="#menu2">Seminar</a></li>
+                <li><a data-toggle="tab" href="#menu3">Talkshow</a></li>
+            </ul>
+        </div>
+    </div>
 
     <script src="{{ asset('js/achievements.js') }}"></script>
-
 @endsection
