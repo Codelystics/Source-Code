@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('alias');
-            $table->string('logo');
+            $table->string('logo')->default('defaultlogo.png');
             $table->timestamps();
         });
     }

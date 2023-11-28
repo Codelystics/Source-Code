@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('details');
+            $table->string('price');
             $table->string('type');
             $table->string('banner');
             $table->float('rating');
-            $table->foreignId('event_body_id')->constrained();
+            $table->integer('poster');
+            $table->foreignId('organizer_id')->constrained();
             $table->timestamps();
         });
     }
