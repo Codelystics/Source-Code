@@ -14,78 +14,78 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         //
-        $userDatas = [
+        $datas = [
             [
-                'name' => 'admin',
+                'username' => 'admin',
                 'email' => 'admin@example.com',
                 'password' => 'admin',
                 'is_admin' => 1,
                 'is_verified' => 0
             ],
             [
-                'name' => 'Mikel Jon tan',
+                'username' => 'Mikel Jon tan',
                 'email' => 'mikel@example.com',
                 'password' => 'mikel',
                 'is_admin' => 0,
                 'is_verified' => 1
             ],
             [
-                'name' => 'Jefri Dam',
+                'username' => 'Jefri Dam',
                 'email' => 'jeff@example.com',
                 'password' => 'jeff',
                 'is_admin' => 0,
                 'is_verified' => 1
             ],
             [
-                'name' => 'Steven Handoko',
+                'username' => 'Steven Handoko',
                 'email' => 'steven@example.com',
                 'password' => 'steven',
                 'is_admin' => 0,
                 'is_verified' => 1
             ],
             [
-                'name' => 'Err Yoshi',
+                'username' => 'Err Yoshi',
                 'email' => 'err@example.com',
                 'password' => 'err',
                 'is_admin' => 0,
                 'is_verified' => 1
             ],
             [
-                'name' => 'Juna Chrish',
+                'username' => 'Juna Chrish',
                 'email' => 'juan@example.com',
                 'password' => 'juan',
                 'is_admin' => 0,
                 'is_verified' => 0
             ],
             [
-                'name' => 'Mas Hansen',
+                'username' => 'Mas Hansen',
                 'email' => 'hansen@example.com',
                 'password' => 'hansen',
                 'is_admin' => 0,
                 'is_verified' => 0
             ],
             [
-                'name' => 'Julen Hitam',
+                'username' => 'Julen Hitam',
                 'email' => 'julen@example.com',
                 'password' => 'julen',
                 'is_admin' => 0,
                 'is_verified' => 0
             ],
             [
-                'name' => 'Reza Kecap',
+                'username' => 'Reza Kecap',
                 'email' => 'reza@example.com',
                 'password' => 'reza',
                 'is_admin' => 0,
                 'is_verified' => 0
             ],
             [
-                'name' => 'dummy',
+                'username' => 'dummy',
                 'email' => 'dummy@example.com',
                 'password' => 'dummy',
                 'is_admin' => 0,
                 'is_verified' => 0
             ],
         ];
-        DB::table('users')->insert($userDatas);
+        DB::table('users')->insert($datas);
     }
 }

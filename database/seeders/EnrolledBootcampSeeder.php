@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
 
 class EnrolledBootcampSeeder extends Seeder
 {
@@ -14,5 +15,17 @@ class EnrolledBootcampSeeder extends Seeder
     public function run(): void
     {
         //
+        $faker = Faker::create();
+        
+        $datas = [];
+        for ($i=0; $i < 10; $i++) { 
+            $temp = [
+                'user_id'=>$faker->numberBetween(2,10),
+                'bootcamp_id'=>$faker->numberBetween(1,10)
+            ];
+            array_push($datas, $temp);
+        }
+
+        DB::table('enrolled_bootcamps')->insert($datas);
     }
 }
