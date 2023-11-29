@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
 
 class BootcampSeeder extends Seeder
 {
@@ -13,6 +14,6 @@ class BootcampSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        
     }
 }

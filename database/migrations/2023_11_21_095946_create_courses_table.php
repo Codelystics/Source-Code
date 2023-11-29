@@ -17,9 +17,8 @@ return new class extends Migration
             $table->string('details');
             $table->string('price');
             $table->string('type');
-            $table->string('banner');
+            $table->string('banner')->default('defaultbanner.png');
             $table->float('rating');
-            $table->integer('poster');
             $table->foreignId('organizer_id')->constrained();
             $table->timestamps();
         });
