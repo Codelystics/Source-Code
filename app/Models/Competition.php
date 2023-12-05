@@ -16,6 +16,6 @@ class Competition extends Model
     }
     public function users(): BelongsToMany
     {
-        return $this->BelongsToMany(Organizer::class);
+        return $this->BelongsToMany(User::class);
     }
 }
