@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\BootcampController;
 use App\Http\Controllers\EventHandlerController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Auth\Middleware\Authenticate;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [EventController::class, 'index'])->name("Home.index");
 
-Route::get('/bootcamp', function () {
-    return view('Bootcamp/index');
-});
+Route::get('/bootcamp', [BootcampController::class, 'index']);
 
 Route::get('/competition', function () {
     return view('Competition/index');

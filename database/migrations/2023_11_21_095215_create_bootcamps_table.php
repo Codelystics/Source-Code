@@ -21,8 +21,8 @@ return new class extends Migration
             $table->dateTime('start');
             $table->dateTime('end');
             $table->float('rating')->default(0);
-            $table->string('banner')->default('defaultbanner.png');
-            $table->string('poster')->default('defaultposter.png');
+            $table->string('banner')->default('defaultbanner.svg');
+            $table->string('poster')->default('defaultposter.svg');
             $table->foreignId('organizer_id')->constrained();
             $table->timestamps();
         });

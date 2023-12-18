@@ -267,20 +267,20 @@
             </div>
         </div>
         <div class="flex flex-col gap-8 pt-14 justify-center">
-            @forelse ($events as $event)
+            @forelse ($datas as $data)
                 <div class="accordion-item cursor-pointer mx-40 border-plum rounded-xl border-4">
                     <div class="flex justify-around items-center h-36 text-xl">
                         <div>
-                            <img src="{{ asset($event->banner) }}" alt="">
+                            <img src="{{ asset('assets/homestuff/'.$data->banner) }}" alt="asdasd">
                         </div>
                         <div class="flex flex-col justify-center items-start">
                             <div class="text-4xl text-purp">
                                 {{-- Ini title --}}
-                                {{ $event->name }}
+                                {{ $data->event_name }}
                             </div>
                             <div class="text-2xl text-white text-opacity-60">
                                 {{-- Ini desc --}}
-                                Seminar held by {{$event->organizer_id}}
+                                Seminar held by {{$data->organizer_name}}
                             </div>
                         </div>
                         <div class="text-6xl text-yellow font-bold">
@@ -294,7 +294,7 @@
                             </div>
                             <div class="text-xl text-white text-opacity-60">
                                 {{-- Ini location --}}
-                                {{$event->venue}}
+                                {{$data->venue}}
                             </div>
                         </div>
 
@@ -309,7 +309,7 @@
                     <div class="p-2 hidden toggle">
                         <div class="flex flex-col px-16 gap-8 pb-10">
                             <div class="text-justify text-white text-xl">
-                                {{$event->details}}
+                                {{$data->details}}
                             </div>
                             <div class="flex flex-row justify-between items-end">
                                 <div class="text-xl text-white">
