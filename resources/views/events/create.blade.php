@@ -7,16 +7,27 @@
     <title>Document</title>
 </head>
 <body>
+    <div>
+        @if($errors->any())
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>
+                        {{$error}}
+                    </li>
+                @endforeach
+            </ul>
+        @endif
+    </div>
     <form action="{{route('event.store')}}" method="post">
         @csrf
         @method('post')
         <div>
             <label>Title</label>
-            <input type="text" name="title" />
+            <input type="text" name="name" />
         </div>
         <div>
             <label>1st Category</label>
-            <select name="category" id="category">
+            <select name="type" id="type">
                 <option value="event">Event</option>
                 <option value="bootcamp">Bootcamp</option>
                 <option value="competition">Competition</option>
@@ -24,31 +35,35 @@
         </div>
         <div>
             <label>Cover Banner</label>
-            <input type="file" name="cover-banner" />
+            <input type="file" name="banner" />
         </div>
         <div>
             <label>Description</label>
-            <input type="text" name="description" />
+            <input type="text" name="details" />
         </div>
         <div>
             <label>Event Start</label>
-            <input type="date" name="event-start" />
+            <input type="datetime-local" name="start" />
         </div>
         <div>
             <label>Event End</label>
-            <input type="date" name="event-end" />
+            <input type="datetime-local" name="end" />
         </div>
         <div>
             <label>Ticket Price</label>
-            <b>Rp.</b> <input type="text" name="duration" />
+            <b>Rp.</b> <input type="text" name="price" />
         </div>
         <div>
             <label>Venue</label>
-            <input type="text" name="quota" />
+            <input type="text" name="venue" />
         </div>
         <div>
             <label>Quota</label>
-            <input type="number" name="quota" />
+            <input type="number" name="capacity" />
+        </div>
+        <div>
+            <label>Organizer_id</label>
+            <input type="number" name="organizer_id" />
         </div>
         <div>
             <input type="submit" value="Submit">

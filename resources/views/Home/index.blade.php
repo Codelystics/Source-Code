@@ -267,60 +267,66 @@
             </div>
         </div>
         <div class="flex flex-col gap-8 pt-14 justify-center">
-            <div class="accordion-item cursor-pointer mx-40 border-plum rounded-xl border-4">
-                <div class="flex justify-around items-center h-36 text-xl">
-                    <div>
-                        <img src="{{ asset('Netflix.svg') }}" alt="">
-                    </div>
-                    <div class="flex flex-col justify-center items-start">
-                        <div class="text-4xl text-purp">
-                            {{-- Ini title --}}
-                            Netflix - Documentation
+            @forelse ($events as $event)
+                <div class="accordion-item cursor-pointer mx-40 border-plum rounded-xl border-4">
+                    <div class="flex justify-around items-center h-36 text-xl">
+                        <div>
+                            <img src="{{ asset($event->banner) }}" alt="">
                         </div>
-                        <div class="text-2xl text-white text-opacity-60">
-                            {{-- Ini desc --}}
-                            Seminar held by Netflix Indonesia
+                        <div class="flex flex-col justify-center items-start">
+                            <div class="text-4xl text-purp">
+                                {{-- Ini title --}}
+                                {{ $event->name }}
+                            </div>
+                            <div class="text-2xl text-white text-opacity-60">
+                                {{-- Ini desc --}}
+                                Seminar held by {{$event->organizer_id}}
+                            </div>
                         </div>
-                    </div>
-                    <div class="text-6xl text-yellow font-bold">
-                        {{-- Ini tanggal --}}
-                        18
-                    </div>
-                    <div class="flex flex-col justify-center items-start">
-                        <div class="text-4xl text-white">
-                            {{-- Ini bulan --}}
-                            December
+                        <div class="text-6xl text-yellow font-bold">
+                            {{-- Ini tanggal --}}
+                            18
                         </div>
-                        <div class="text-xl text-white text-opacity-60">
-                            {{-- Ini location --}}
-                            Cibubur Junction
+                        <div class="flex flex-col justify-center items-start">
+                            <div class="text-4xl text-white">
+                                {{-- Ini bulan --}}
+                                December
+                            </div>
+                            <div class="text-xl text-white text-opacity-60">
+                                {{-- Ini location --}}
+                                {{$event->venue}}
+                            </div>
                         </div>
-                    </div>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <!-- Original arrow -->
-                        <path class="arrow" d="M6 9l6 6l6 -6" stroke="#fff" />
-                        <!-- Upside-down arrow (hidden by default) -->
-                        <path class="arrow hidden" d="M6 15l6 -6l6 6" stroke="#fff" />
-                    </svg>                    
-                </div>
-                <div class="p-2 hidden toggle">
-                    <div class="flex flex-col px-16 gap-8 pb-10">
-                        <div class="text-justify text-white text-xl">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo qui molestias, non odio, accusamus dolorum ratione saepe cupiditate assumenda ducimus quam quasi? Et deserunt nam esse magnam? Aperiam, dolorem inventore.
-                        </div>
-                        <div class="flex flex-row justify-between items-end">
-                            <div class="text-xl text-white">
-                                Certificate for the Top 5 Candidates
+                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <!-- Original arrow -->
+                            <path class="arrow" d="M6 9l6 6l6 -6" stroke="#fff" />
+                            <!-- Upside-down arrow (hidden by default) -->
+                            <path class="arrow hidden" d="M6 15l6 -6l6 6" stroke="#fff" />
+                        </svg>                    
+                    </div>
+                    <div class="p-2 hidden toggle">
+                        <div class="flex flex-col px-16 gap-8 pb-10">
+                            <div class="text-justify text-white text-xl">
+                                {{$event->details}}
                             </div>
-                            <div>
-                                <button class="bg-violet p-4 px-7 rounded-md text-white text-2xl"><a href="">Schedule Now!</a></button>
+                            <div class="flex flex-row justify-between items-end">
+                                <div class="text-xl text-white">
+                                    Certificate for the Top 5 Candidates
+                                </div>
+                                <div>
+                                    <button class="bg-violet p-4 px-7 rounded-md text-white text-2xl"><a href="">Schedule Now!</a></button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            
+            @empty
+            
+            @endforelse
+            
             <div class="mx-40 text-white text-2xl flex flex-row justify-end text-opacity-50">
                 <a href="">See More</a>
             </div>

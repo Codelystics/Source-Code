@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Organizer;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -12,7 +13,9 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $events = Event::orderBy("start","desc")->paginate(6);
+        $organizers = Organizer::orderBy("id","desc");
+        return view("Home.index", compact(["events", "organizers"]));
     }
 
     /**

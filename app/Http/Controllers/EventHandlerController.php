@@ -28,27 +28,29 @@ class EventHandlerController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
         $data = $request->validate([
-            'title'=>'required', 
-            'category'=>'required',
-            'cover-banner'=> 'required|image',
-            'description'=> 'required',
-            'event-start' => 'required|date|after:tomorrow',
-            'event-end'=> 'required|date|after:event-start',
-            'quota' => 'required|numeric',
+            'name'=>'required', 
+            'details'=> 'required',
+            'price'=> 'required|numeric',
+            'capacity' => 'required|integer',
+            'type'=>'required',
+            'start' => 'required|date|after:tomorrow',
+            'end'=> 'required|date|after:event-start',
+            'venue'=> 'required',
+            'banner'=> 'required|max:2048',
+            'organizer_id' => 'required',
         ]);
 
-        if($request->category == 'event'){
+        if($request->type == 'event'){
             $newEvent = Event::create($data);
-        }
-        else if($request->category == 'competition'){
-            $newEvent = Competition::create($data);
         }
         else if($request->category == 'bootcamp'){
             $newEvent = Bootcamp::create($data);
         }
+        else if($request->type == 'competition'){
+            $newEvent = Competition::create($data);
+        }
 
-        return(redirect(route('events.index')));
+        return(redirect(route('event.index')));
     }
 }
