@@ -271,7 +271,7 @@
                 <div class="accordion-item cursor-pointer mx-40 border-plum rounded-xl border-4">
                     <div class="flex justify-around items-center h-36 text-xl">
                         <div>
-                            <img src="{{ asset('assets/homestuff/'.$data->banner) }}" alt="asdasd">
+                            <img src="{{ asset('assets/homeimg/'.$data->banner) }}" alt="asdasd">
                         </div>
                         <div class="flex flex-col justify-center items-start">
                             <div class="text-4xl text-purp">
@@ -324,11 +324,10 @@
                 </div>
             
             @empty
-            
             @endforelse
             
             <div class="mx-40 text-white text-2xl flex flex-row justify-end text-opacity-50">
-                <a href="">See More</a>
+                <a href="/login">See More</a>
             </div>
         </div>
     </div>
