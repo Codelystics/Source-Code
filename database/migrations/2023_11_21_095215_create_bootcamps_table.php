@@ -13,12 +13,15 @@ return new class extends Migration
     {
         Schema::create('bootcamps', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('details');
+            $table->string('price');
+            $table->integer('capacity');
             $table->string('type');
             $table->dateTime('start');
             $table->dateTime('end');
-            $table->integer('slot');
-            $table->string('poster_pic');
-            $table->foreignId('event_body_id')->constrained()->cascadeOnDelete();
+            $table->string('poster')->default('defaultposter.png');
+            $table->foreignId('organizer_id')->constrained();
             $table->timestamps();
         });
     }

@@ -13,13 +13,17 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('banner');
+            $table->string('name');
+            $table->string('details');
+            $table->string('price');
+            $table->integer('capacity');
             $table->string('type');
             $table->dateTime('start');
             $table->dateTime('end');
             $table->string('venue');
-            $table->string('poster_pic');
-            $table->foreignId('event_body_id')->constrained();
+            $table->string('banner')->default('defaultbanner.png');
+            $table->string('poster')->default('defaultposter.png');
+            $table->foreignId('organizer_id')->constrained();
             $table->timestamps();
         });
     }

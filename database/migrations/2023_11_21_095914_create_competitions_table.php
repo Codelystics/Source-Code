@@ -13,10 +13,15 @@ return new class extends Migration
     {
         Schema::create('competitions', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('details');
+            $table->string('price');
+            $table->integer('capacity');
             $table->string('type');
             $table->dateTime('start');
             $table->dateTime('end');
-            $table->foreignId('event_body_id')->constrained();
+            $table->string('venue');
+            $table->foreignId('organizer_id')->constrained();
             $table->timestamps();
         });
     }
