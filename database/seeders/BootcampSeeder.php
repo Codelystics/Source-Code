@@ -50,6 +50,7 @@ class BootcampSeeder extends Seeder
                 'type' => $faker->randomElement($types),
                 'start' => $startDate->format('Y-m-d H:i:s'),
                 'end' => $endDate->format('Y-m-d H:i:s'),
+                'rating' => $faker->randomFloat(1,3,5),
                 'organizer_id' => $faker->numberBetween(1,3),
             ];
 
