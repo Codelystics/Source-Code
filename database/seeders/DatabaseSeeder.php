@@ -26,11 +26,9 @@ class DatabaseSeeder extends Seeder
             BootcampSeeder::class,
             EventSeeder::class,
             CompetitionSeeder::class,
-            CourseSeeder::class,
             EnrolledBootcampSeeder::class,
             EnrolledEventSeeder::class,
             EnrolledCompetitionSeeder::class, 
-            EnrolledCourseSeeder::class,
             UserDataSeeder::class,
         ]);
 
