@@ -26,6 +26,60 @@
             background-clip: text;
             color: transparent;
         }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none; 
+        }
+        .carousel-wrapper {
+            width: 100%; 
+            overflow: hidden;
+        }
+
+        .carousel {
+            display: flex;
+            animation: slide 9s infinite linear;
+        }
+
+        .slide-row {
+            display: flex;
+            overflow: hidden; /* Jika lebar total logo lebih besar, hilangkan overflow */
+            flex-shrink: 0;
+        }
+
+        .slide {
+            filter: grayscale(100%); /* Set default state to grayscale */
+            transition: filter 0.3s ease;
+            flex: 0 0 10%; /* Atur lebar setiap logo, contoh: 20% dari lebar viewport */
+            max-width: 100%;
+            height: auto;
+        }
+
+        .slide:hover {
+            filter: none;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%); /* Geser gambar sejauh 100% lebar viewport */
+            }
+        }
+
+        .slide-from-right {
+            animation: slide-from-right 10s infinite linear;
+        }
+
+        @keyframes slide-from-right {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
     </style>
 
 </head>
@@ -34,13 +88,13 @@
         <ul class="flex flex-row justify-around h-24 items-center text-white">
             <div class="flex justify-evenly w-1/4">
                 <li>
-                    <a href="">Event</a>
+                    <a href="{{ url('/') }}">Event</a>
                 </li>
                 <li>
-                    <a href="">Bootcamp</a>
+                    <a href="{{ url('/bootcamp') }}">Bootcamp</a>
                 </li>
                 <li>
-                    <a href="">Competition</a>
+                    <a href="{{ url('/competition') }}">Competition</a>
                 </li>
             </div>
             <div class="flex justify-center items-center w-2/3">
@@ -59,7 +113,7 @@
             </div>
         </ul>
     </nav>
-    <div class="h=full pt-20">
+    <div class="h-full pt-20">
         @yield('content')
     </div>
     <div class="p-20 w-full flex flex-row justify-center items-center">
