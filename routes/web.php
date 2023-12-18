@@ -32,4 +32,4 @@ Route::get('/login', [SessionController::class, 'index']);
 Route::post("/login", [SessionController::class, 'authenticate'])->name('login'); 
 Route::get('/main', [EventHandlerController::class, 'index'])->name('event.index');
 Route::get('/create', [EventHandlerController::class,'create'])->name('event.create');
-Route::post('/main', [EventHandlerController::class,'store'])->name('event.store');git
+Route::post('/main', [EventHandlerController::class,'store'])->name('event.store');
