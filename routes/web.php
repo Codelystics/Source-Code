@@ -16,7 +16,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Home/index');
+});
+
+Route::get('/bootcamp', function () {
+    return view('Bootcamp/index');
+});
+
+Route::get('/competition', function () {
+    return view('Competition/index');
 });
 
 # placeholder doang, kalo gaperlu hapus aja
