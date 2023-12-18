@@ -4,7 +4,7 @@ module.exports = {
       "./resources/**/*.blade.php",
       "./resources/**/*.js",
       "./resources/**/*.vue",
-    ],
+    ],     
     theme: {
       extend: {
         backgroundImage: {
@@ -17,6 +17,7 @@ module.exports = {
         'white': '#ffffff',
         'gradPurp': '#AF71F1',
         'lavender': '#93009C',
+        'purp': '#B000B2',
         'black': '#000000',
         'yellow': '#F7AF36',
       }
