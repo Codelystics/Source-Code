@@ -35,7 +35,7 @@ class EventSeeder extends Seeder
             
             $startDate = $faker->dateTimeBetween('-2 week', '-1 day');
             $endDate = $faker->dateTimeBetween('now', '+1 month');
-            $name = 'Cool Event '. $i . ' by mikel john';
+            $name = "Mikel John's ". $i .' Cool Event';
             
             $price = Null;
             if($faker->numberBetween(1,10) < 3){

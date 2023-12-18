@@ -16,11 +16,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Home/index');
+});
+
+Route::get('/bootcamp', function () {
+    return view('Bootcamp/index');
+});
+
+Route::get('/competition', function () {
+    return view('Competition/index');
 });
 
 # placeholder doang, kalo gaperlu hapus aja
 Route::get('/login', [SessionController::class, 'index']);
+Route::post("/login", [SessionController::class, 'authenticate'])->name('login'); 
 Route::get('/main', [EventHandlerController::class, 'index'])->name('event.index');
 Route::get('/create', [EventHandlerController::class,'create'])->name('event.create');
 Route::post('/main', [EventHandlerController::class,'store'])->name('event.store');
