@@ -19,4 +19,5 @@ class Bootcamp extends Model
     {
         return $this->BelongsToMany(User::class);
     }
+    
 }
