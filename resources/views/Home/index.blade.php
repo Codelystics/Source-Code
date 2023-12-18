@@ -285,12 +285,12 @@
                         </div>
                         <div class="text-6xl text-yellow font-bold">
                             {{-- Ini tanggal --}}
-                            18
+                            {{ $data-> start_day }}
                         </div>
                         <div class="flex flex-col justify-center items-start">
                             <div class="text-4xl text-white">
                                 {{-- Ini bulan --}}
-                                December
+                                {{ $data -> start_month}}
                             </div>
                             <div class="text-xl text-white text-opacity-60">
                                 {{-- Ini location --}}

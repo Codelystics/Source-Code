@@ -33,9 +33,9 @@ class EventSeeder extends Seeder
         // generate 10 datas
         for($i = 0; $i < 10; $i++){
             
-            $startDate = $faker->dateTimeBetween('-2 week', '-1 day');
+            $startDate = $faker->dateTimeBetween('-2 month', '-1 day');
             $endDate = $faker->dateTimeBetween('now', '+1 month');
-            $name = "Mikel John's ". $i .' Cool Event';
+            $name = "Mikel events ". $i;
             
             $price = Null;
             if($faker->numberBetween(1,10) < 3){
@@ -52,8 +52,8 @@ class EventSeeder extends Seeder
                 'price' => $price,
                 'capacity' => $faker->numberBetween(1,199),
                 'type' => $faker->randomElement($types),
-                'start' => $startDate->format('Y-m-d H:i:s'),
-                'end' => $endDate->format('Y-m-d H:i:s'),
+                'start' => $startDate,
+                'end' => $endDate,
                 'venue' => $faker->randomElement($locations),
                 'organizer_id' => $faker->numberBetween(1,3),
             ];

@@ -16,10 +16,15 @@ class EventController extends Controller
     {
         $datas = DB::table('events')
                 ->join('organizers', 'events.organizer_id', '=', 'organizers.id')
-                ->select('*', 'events.name as event_name', 'organizers.name as organizer_name')
-                ->orderBy("start","desc")
+                ->select(
+                        '*',
+                    'events.name as event_name',
+                    'organizers.name as organizer_name',
+                    DB::raw("DATE_FORMAT(start, '%M') as start_month"),
+                    DB::raw('DAY(start) as start_day'),
+                )
+                ->orderBy("start","asc")
                 ->paginate(6);
-
         return view("Home.index", compact(["datas"]));
     }
 
