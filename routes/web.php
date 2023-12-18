@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\BootcampController;
 use App\Http\Controllers\EventHandlerController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Auth\Middleware\Authenticate;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,18 +18,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Home/index');
-})->name("welcome");
+Route::get('/', [EventController::class, 'index'])->name("Home.index");
 
-
-Route::get('/bootcamp', function () {
-    return view('Bootcamp/index');
-});
+Route::get('/bootcamp', [BootcampController::class, 'index']);
 
 Route::get('/competition', function () {
     return view('Competition/index');
 });
+
+# routing untuk home
 
 # placeholder doang, kalo gaperlu hapus aja
 Route::get("/login", [SessionController::class, 'loginPage'])->name('login');
@@ -35,6 +35,7 @@ Route::get("/logout", [SessionController::class, 'logout'])->name('logout');
 Route::get("/register", [SessionController::class, 'registPage'])->name('register');
 Route::post("/register", [SessionController::class, 'createUser'])->name('register');
 
+# routing untuk view placeholder
 Route::get('/main', [EventHandlerController::class, 'index'])->name('event.index');
 Route::get('/create', [EventHandlerController::class,'create'])->name('event.create');
 Route::post('/main', [EventHandlerController::class,'store'])->name('event.store');

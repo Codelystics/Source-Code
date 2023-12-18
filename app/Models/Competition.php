@@ -10,6 +10,19 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Competition extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        "name",
+        "type",
+        "banner",
+        "details",
+        "start",
+        "end",
+        "price",
+        "venue",
+        "capacity",
+        "organizer_id",
+    ];
+
     public function organizers(): BelongsTo
     {
         return $this->belongsTo(Organizer::class);

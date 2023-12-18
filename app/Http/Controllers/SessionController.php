@@ -44,7 +44,7 @@ class SessionController extends Controller
     }
 
     public function createUser(Request $request){
-        $credentials = $request->validate([
+        $request->validate([
             'username' => ['required', 'unique:users'],
             'email' => ['required', 'email', 'unique:users'],
             'password' => ['required'],

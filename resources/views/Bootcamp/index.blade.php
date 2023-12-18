@@ -55,89 +55,21 @@
 <!-- Container with overflow -->
 <div class="flex overflow-x-auto hide-scrollbar space-x-4 p-4 mt-8 mb-8">
     <!-- Column 1 -->
+    @foreach ($datas->take(6) as $data)
     <div class="flex-none w-80 ml-32">
-        <img src="assets/bootcamp/container.svg" alt="Course Image" class="w-full h-48 object-cover">
+        <img src={{ asset('assets/bootcamp/'.$data->banner) }} alt="Course Image" class="w-full h-48 object-cover">
         <div class="pt-4">
-            <h3 class="text-white font-semibold mb-2 text-base">Golang Bootcamp 2023
-                w/ Juan Christian Dotulung</h3>
-            <p class="text-white text-opacity-75 mb-2">Juan Christian</p>
+            <h3 class="text-white font-semibold mb-2 text-base">{{ $data->bootcamp_name }}
+                </h3>
+            <p class="text-white text-opacity-75 mb-2">from: {{  $data->organizer_name }}</p>
             <div class="flex items-center mb-2">
-                <span class="text-white mr-1">4.5</span>
+                <span class="text-white mr-1">{{ $data->rating }}</span>
                 <span class="text-yellow-500">⭐⭐⭐⭐⭐</span>
             </div>
-            <button class="bg-violet text-white py-2 px-4 hover:bg-blue-600">Best Course</button>
+            <a href="{{ '/' }}" class=""><button class="bg-violet text-white py-2 px-4 hover:bg-blue-600">Best Course</button></a>
         </div>
     </div>
-
-    <div class="flex-none w-80">
-        <img src="assets/bootcamp/container.svg" alt="Course Image" class="w-full h-48 object-cover">
-        <div class="pt-4">
-            <h3 class="text-white font-semibold mb-2 text-base">Golang Bootcamp 2023
-                w/ Juan Christian Dotulung</h3>
-            <p class="text-white text-opacity-75 mb-2">Juan Christian</p>
-            <div class="flex items-center mb-2">
-                <span class="text-white mr-1">4.5</span>
-                <span class="text-yellow-500">⭐⭐⭐⭐⭐</span>
-            </div>
-            <button class="bg-violet text-white py-2 px-4 hover:bg-blue-600">Best Course</button>
-        </div>
-    </div>
-
-    <div class="flex-none w-80">
-        <img src="assets/bootcamp/container.svg" alt="Course Image" class="w-full h-48 object-cover">
-        <div class="pt-4">
-            <h3 class="text-white font-semibold mb-2 text-base">Golang Bootcamp 2023
-                w/ Juan Christian Dotulung</h3>
-            <p class="text-white text-opacity-75 mb-2">Juan Christian</p>
-            <div class="flex items-center mb-2">
-                <span class="text-white mr-1">4.5</span>
-                <span class="text-yellow-500">⭐⭐⭐⭐⭐</span>
-            </div>
-            <button class="bg-violet text-white py-2 px-4 hover:bg-blue-600">Best Course</button>
-        </div>
-    </div>
-
-    <div class="flex-none w-80">
-        <img src="assets/bootcamp/container.svg" alt="Course Image" class="w-full h-48 object-cover">
-        <div class="pt-4">
-            <h3 class="text-white font-semibold mb-2 text-base">Golang Bootcamp 2023
-                w/ Juan Christian Dotulung</h3>
-            <p class="text-white text-opacity-75 mb-2">Juan Christian</p>
-            <div class="flex items-center mb-2">
-                <span class="text-white mr-1">4.5</span>
-                <span class="text-yellow-500">⭐⭐⭐⭐⭐</span>
-            </div>
-            <button class="bg-violet text-white py-2 px-4 hover:bg-blue-600">Best Course</button>
-        </div>
-    </div>
-
-    <div class="flex-none w-80">
-        <img src="assets/bootcamp/container.svg" alt="Course Image" class="w-full h-48 object-cover">
-        <div class="pt-4">
-            <h3 class="text-white font-semibold mb-2 text-base">Golang Bootcamp 2023
-                w/ Juan Christian Dotulung</h3>
-            <p class="text-white text-opacity-75 mb-2">Juan Christian</p>
-            <div class="flex items-center mb-2">
-                <span class="text-white mr-1">4.5</span>
-                <span class="text-yellow-500">⭐⭐⭐⭐⭐</span>
-            </div>
-            <button class="bg-violet text-white py-2 px-4 hover:bg-blue-600">Best Course</button>
-        </div>
-    </div>
-
-    <div class="flex-none w-80">
-        <img src="assets/bootcamp/container.svg" alt="Course Image" class="w-full h-48 object-cover">
-        <div class="pt-4">
-            <h3 class="text-white font-semibold mb-2 text-base">Golang Bootcamp 2023
-                w/ Juan Christian Dotulung</h3>
-            <p class="text-white text-opacity-75 mb-2">Juan Christian</p>
-            <div class="flex items-center mb-2">
-                <span class="text-white mr-1">4.5</span>
-                <span class="text-yellow-500">⭐⭐⭐⭐⭐</span>
-            </div>
-            <button class="bg-violet text-white py-2 px-4 hover:bg-blue-600">Best Course</button>
-        </div>
-    </div>
+    @endforeach
 </div>
 
 <div class="flex flex-col items-center text-center bg-gray-100 py-8">
