@@ -35,8 +35,10 @@ class SessionController extends Controller
         ])->onlyInput('email');
     }
 
-    public function logout(){
+    public function logout(Request $request){
         Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect('welcome')->with('success', "Logout");
     }
     public function registPage(){
