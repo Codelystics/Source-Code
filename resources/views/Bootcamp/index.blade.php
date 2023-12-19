@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.main')
 
 @section('content')
 <div class="bg-bootcampImage bg-cover bg-center h-full text-white py-32">
@@ -191,48 +191,52 @@
     </div>
 </div>
 
-<div class="carousel-wrapper">
-    <div class="carousel">
-        <div class="slide-row">
-            <img src="assets/logos/envision.svg" alt="Image 1" class="slide">
-            <img src="assets/logos/Amazon.svg" alt="Image 2" class="slide">
-            <img src="assets/logos/Figma.svg" alt="Image 3" class="slide">
-            <img src="assets/logos/OVO.svg" alt="Image 3" class="slide">
-            <img src="assets/logos/Maybank.svg" alt="Image 3" class="slide">
-            <img src="assets/logos/BCA.svg" alt="Image 3" class="slide">
+<div class="flex flex-col justify-center items-center pt-32 gap-12">
+    <div class="text-white text-4xl font-bold">
+        MEDIA PARTNER
+    </div>
+    <div class="carousel-wrapper">
+        <div class="carousel">
+            <div class="slide-row">
+                <img src="assets/logos/envision.svg" alt="Image 1" class="slide">
+                <img src="assets/logos/Amazon.svg" alt="Image 2" class="slide">
+                <img src="assets/logos/Figma.svg" alt="Image 3" class="slide">
+                <img src="assets/logos/OVO.svg" alt="Image 3" class="slide">
+                <img src="assets/logos/Maybank.svg" alt="Image 3" class="slide">
+                <img src="assets/logos/BCA.svg" alt="Image 3" class="slide">
+            </div>
+            <div class="slide-row">
+                <img src="assets/logos/envision.svg" alt="Image 1" class="slide">
+                <img src="assets/logos/Amazon.svg" alt="Image 2" class="slide">
+                <img src="assets/logos/Figma.svg" alt="Image 3" class="slide">
+                <img src="assets/logos/OVO.svg" alt="Image 3" class="slide">
+                <img src="assets/logos/Maybank.svg" alt="Image 3" class="slide">
+                <img src="assets/logos/BCA.svg" alt="Image 3" class="slide">
+            </div>
         </div>
-        <div class="slide-row">
-            <img src="assets/logos/envision.svg" alt="Image 1" class="slide">
-            <img src="assets/logos/Amazon.svg" alt="Image 2" class="slide">
-            <img src="assets/logos/Figma.svg" alt="Image 3" class="slide">
-            <img src="assets/logos/OVO.svg" alt="Image 3" class="slide">
-            <img src="assets/logos/Maybank.svg" alt="Image 3" class="slide">
-            <img src="assets/logos/BCA.svg" alt="Image 3" class="slide">
+    </div>
+    
+    <div class="carousel-wrapper">
+        <div class="carousel slide-from-right">
+            <div class="slide-row">
+                <img src="assets/logos/Tokopedia.svg" alt="Image 2" class="slide">
+                <img src="assets/logos/Grab.svg" alt="Image 3" class="slide">
+                <img src="assets/logos/Twetter.svg" alt="Image 3" class="slide">
+                <img src="assets/logos/BCA.svg" alt="Image 3" class="slide">
+                <img src="assets/logos/Maybank.svg" alt="Image 3" class="slide">
+                <img src="assets/logos/Mandiri.svg" alt="Image 1" class="slide">
+            </div>
+            <div class="slide-row">
+                <img src="assets/logos/Tokopedia.svg" alt="Image 2" class="slide">
+                <img src="assets/logos/Grab.svg" alt="Image 3" class="slide">
+                <img src="assets/logos/Twetter.svg" alt="Image 3" class="slide">
+                <img src="assets/logos/BCA.svg" alt="Image 3" class="slide">
+                <img src="assets/logos/Maybank.svg" alt="Image 3" class="slide">
+                <img src="assets/logos/Mandiri.svg" alt="Image 1" class="slide">
+             </div>
         </div>
     </div>
 </div>
-
-<div class="carousel-wrapper">
-    <div class="carousel slide-from-right">
-        <div class="slide-row">
-            <img src="assets/logos/Tokopedia.svg" alt="Image 2" class="slide">
-            <img src="assets/logos/Grab.svg" alt="Image 3" class="slide">
-            <img src="assets/logos/Twetter.svg" alt="Image 3" class="slide">
-            <img src="assets/logos/BCA.svg" alt="Image 3" class="slide">
-            <img src="assets/logos/Maybank.svg" alt="Image 3" class="slide">
-            <img src="assets/logos/Mandiri.svg" alt="Image 1" class="slide">
-        </div>
-        <div class="slide-row">
-            <img src="assets/logos/Tokopedia.svg" alt="Image 2" class="slide">
-            <img src="assets/logos/Grab.svg" alt="Image 3" class="slide">
-            <img src="assets/logos/Twetter.svg" alt="Image 3" class="slide">
-            <img src="assets/logos/BCA.svg" alt="Image 3" class="slide">
-            <img src="assets/logos/Maybank.svg" alt="Image 3" class="slide">
-            <img src="assets/logos/Mandiri.svg" alt="Image 1" class="slide">
-         </div>
-    </div>
-</div>
-
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {

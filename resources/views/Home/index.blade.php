@@ -1,6 +1,10 @@
-@extends('layout')
+@extends('layouts.main')
 
 @section('content')
+
+    @php
+        use Illuminate\Support\Str;
+    @endphp
 
     <style>
         select {
@@ -291,9 +295,9 @@
                             {{-- Ini bulan --}}
                             December
                         </div>
-                        <div class="text-xl text-white text-opacity-60">
+                        <div class="text-xl text-white text-opacity-60 whitespace-nowrap overflow-hidden text-ellipsis">
                             {{-- Ini location --}}
-                            Cibubur Junction
+                            {{ Str::limit('Cibubur Junction', 17, '...') }}
                         </div>
                     </div>
 
