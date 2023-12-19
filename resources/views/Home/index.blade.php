@@ -273,11 +273,11 @@
         <div class="flex flex-col gap-8 pt-14 justify-center">
             @forelse ($datas as $data)
                 <div class="accordion-item cursor-pointer mx-40 border-plum rounded-xl border-4">
-                    <div class="flex justify-around items-center h-36 text-xl">
-                        <div>
+                    <div class="flex justify-around items-center h-36 text-xl w-full">
+                        <div class="w-2/4">
                             <img src="{{ asset('assets/homeimg/'.$data->banner) }}" alt="asdasd">
                         </div>
-                        <div class="flex flex-col justify-center items-start">
+                        <div class="flex flex-col justify-center items-start w-2/3">
                             <div class="text-4xl text-purp">
                                 {{-- Ini title --}}
                                 {{ $data->event_name }}
@@ -287,11 +287,11 @@
                                 Seminar held by {{$data->organizer_name}}
                             </div>
                         </div>
-                        <div class="text-6xl text-yellow font-bold">
+                        <div class="text-6xl text-yellow font-bold w-1/5">
                             {{-- Ini tanggal --}}
                             {{ $data-> start_day }}
                         </div>
-                        <div class="flex flex-col justify-center items-start">
+                        <div class="flex flex-col justify-center items-start w-1/5">
                             <div class="text-4xl text-white">
                                 {{-- Ini bulan --}}
                                 {{ $data -> start_month}}
