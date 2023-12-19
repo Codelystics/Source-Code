@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Codelystics Regis</title>
+    @vite('resources/css/app.css')
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&display=swap');
         .image-slider img {
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
@@ -34,7 +36,6 @@
             border-color: #9747FF; /* Apply indigo border color when checked */
         }
     </style>
-    @vite('resources/css/app.css')
 
 </head>
 <body class="flex items-stretch h-screen">
@@ -50,7 +51,7 @@
 </div>
 
 <div class="w-full md:w-3/5 flex flex-col items-center justify-center bg-gray-800">
-    <div class="w-full md:w-3/5 flex flex-col items-start justify-center bg-gray-800 p-4">
+    <div class="w-full md:w-3/5 flex flex-col items-center justify-center bg-gray-800 p-4">
         <div class="flex items-center mb-4">
             <h1 class="text-4xl font-semibold" style="color: #9747FF;">Regis</h1>
             <img src="assets/login/Codelytics-Logo.svg" alt="Image" class="h-full w-full"> <!-- Replace with your image URL -->
@@ -78,6 +79,9 @@
             <button class="bg-violet text-white py-2 px-4 hover:bg-blue-600 w-96 h-11 rounded-2xl" type="submit">Regis</button>
         </div>
     </form>
+    <div class="mt-4 flex text-white text-sm justify-center">
+        <p>Already have an account? <a href="{{route('login')}}" class="text-ungu">Login</a></p>
+    </div>
 </div>
 
 <script>
