@@ -21,7 +21,7 @@ use App\Http\Controllers\FormController;
 
 Route::get('/', [EventController::class, 'index'])->name("Home.index");
 
-Route::get('/bootcamp', [BootcampController::class, 'index']);
+Route::get('/bootcamp', [BootcampController::class, 'index'])->name("bootcamp");
 
 Route::get('/competition', function () {
     return view('Competition/index');
