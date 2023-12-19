@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Hash;
 class SessionController extends Controller
 {
     //
-    function loginPage(){
-        return view("login");
+    public function loginPage(){
+        return view("Login.index");
     }
 
     public function authenticate(Request $request){
@@ -43,7 +43,7 @@ class SessionController extends Controller
         return redirect('welcome')->with('success', "Logout");
     }
     public function registPage(){
-        return view("register");
+        return view("Register.index");
     }
 
     public function createUser(Request $request){
@@ -67,6 +67,6 @@ class SessionController extends Controller
         ];
 
         User::create($data);
-        return redirect("login")->with('success', "User Created Successfully");;
+        return redirect("Login.index")->with('success', "User Created Successfully");;
     }
 }

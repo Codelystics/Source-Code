@@ -50,11 +50,26 @@
 
         #btn-submit {
             display: none;
+            background-color: #9747FF;
+            padding: 8px 16px;
+            border-radius: 4px;
         }
     </style>
 
-    <form id="myForm" method="POST" action="{{ route('submit-form') }}">
+    <div class="text-white bg-none">
+        @if($errors->any())
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>
+                        {{$error}}
+                    </li>
+                @endforeach
+            </ul>
+        @endif
+    </div>
+    <form id="myForm" method="POST" action="{{ route('Event.store') }}" enctype="multipart/form-data">
         @csrf
+        @method('post')
         <div class="px-14 p-4">
             <div class="bg-none text-white">
                 {{-- Tabs --}}
@@ -85,7 +100,7 @@
                             <p>Input User Data</p>
                             <div class="flex flex-col justify-center items-start">
                                 <label for="title">Title<span class="text-red">*</span></label>
-                                <input type="text" id="title" name="title" class="input-field">
+                                <input type="text" id="name" name="name" class="input-field">
                             </div>
                             {{-- <div class="flex flex-col justify-center items-start">
                                 <label for="category1">Category<span class="text-red">*</span></label>
@@ -106,7 +121,7 @@
                             </div> --}}
                             <div class="flex flex-col justify-center items-start">
                                 <label for="category1">Category<span class="text-red">*</span></label>
-                                <select name="category1" id="category1" class="input-field" onchange="handleCategoryChange(this)">
+                                <select name="main_type" id="main_type" class="input-field" onchange="handleCategoryChange(this)">
                                     <option value="event">Event</option>
                                     <option value="competition">Competition</option>
                                     <option value="bootcamp">Bootcamp</option>
@@ -115,7 +130,7 @@
                             
                             <div id="category2Container" class="flex flex-col justify-center items-start" style="display: none;">
                                 <label for="category2">Sub-category<span class="text-red">*</span></label>
-                                <select name="category2" id="category2" class="input-field">
+                                <select name="type" id="type" class="input-field">
                                     <option value="conference">Conference</option>
                                     <option value="seminar">Seminar</option>
                                     <option value="talkshow">Talkshow</option>
@@ -124,7 +139,7 @@
                             
                             <div id="category3Container" class="flex flex-col justify-center items-start" style="display: none;">
                                 <label for="category3">Sub-category<span class="text-red">*</span></label>
-                                <select name="category3" id="category3" class="input-field">
+                                <select name="type" id="type" class="input-field">
                                     <option value="ctf">Capture The Flag</option>
                                     <option value="softDev">Software Development</option>
                                     <option value="hackathon">Hackathon</option>
@@ -133,7 +148,7 @@
 
                             <div id="category4Container" class="flex flex-col justify-center items-start" style="display: none;">
                                 <label for="category4">Sub-category<span class="text-red">*</span></label>
-                                <select name="category4" id="category4" class="input-field">
+                                <select name="type" id="type" class="input-field">
                                     <option value="frontEnd">Front-End</option>
                                     <option value="backEnd">Back-End</option>
                                     <option value="database">Database</option>
@@ -141,7 +156,7 @@
                             </div>
                             <div class="flex flex-col justify-center items-start">
                                 <label for="description">Description<span class="text-red">*</span></label>
-                                <textarea id="description" name="description" rows="4" cols="10" class="input-field"></textarea>
+                                <textarea id="details" name="details" rows="4" cols="10" class="input-field"></textarea>
                             </div>
                         </div>
                         <div class="flex flex-col w-1/2 justify-center items-center">
@@ -160,7 +175,7 @@
                                             Attach a file
                                         </p>
                                     </div>
-                                    <input type="file" class="opacity-0" id="imageInput"
+                                    <input type="file" class="opacity-0" id="banner" name="banner"
                                         onchange="previewImage(event)" />
                                 </label>
                             </div>
@@ -185,15 +200,14 @@
                     <div class="flex flex-row justify-around">
                         <div class="flex flex-col w-1/2 gap-6">
                             <p>Input Event Details</p>
-                            <label for="duration">Post Duration<span class="text-red">*</span></label>
                             <div class="flex flex-row justify-between items-center w-full">
                                 <div class="flex flex-col justify-center items-start w-1/2">
-                                    <label for="start">Start<span class="text-red">*</span></label>
+                                    <label for="start">Event Start<span class="text-red">*</span></label>
                                     <input type="datetime-local" id="start" name="start" class="input-field">
                                 </div>
                                 <div class="flex flex-col justify-center items-start w-1/2">
-                                    <label for="End">End<span class="text-red">*</span></label>
-                                    <input type="datetime-local" id="End" name="End" class="input-field">
+                                    <label for="End">Event End<span class="text-red">*</span></label>
+                                    <input type="datetime-local" id="end" name="end" class="input-field">
                                 </div>
                             </div>
                             <div class="flex flex-col justify-center items-start">
@@ -202,34 +216,22 @@
                                     class="input-field">
                             </div>
                             <div class="flex flex-col justify-center items-start">
-                                <label for="held">Event Held<span class="text-red">*</span></label>
-                                <input type="text" id="held" name="held" class="input-field">
+                                <label for="held">Event Venue<span class="text-red">*</span></label>
+                                <input type="text" id="venue" name="venue" class="input-field">
                             </div>
-                            <div class="flex flex-col justify-center items-start">
-                                <label for="quota">Quota<span class="text-red">*</span></label>
-                                <input type="number" id="quota" name="quota" min="1" value="1"
-                                    class="input-field">
+                            <div class="flex flex-row justify-between items-center w-full">
+                                <div class="flex flex-col justify-center items-start">
+                                    <label for="quota">Quota<span class="text-red">*</span></label>
+                                    <input type="number" id="capacity" name="capacity" min="1" value="1"
+                                        class="input-field">
+                                </div>
+                                <div class="flex flex-col justify-center items-start w-1/2">
+                                    <label for="End">Organizer ID<span class="text-red">*</span></label>
+                                    <input type="number" id="organizer_id" name="organizer_id" class="input-field">
+                                </div>
                             </div>
                         </div>
                         <div class="flex flex-col w-1/2 justify-center items-center">
-                            <label class="mb-2 text-gray-500">File Upload</label>
-                            <div class="flex items-center justify-center">
-                                <label
-                                    class="flex flex-col w-full h-32 border-4 border-blue-200 border-dashed hover:bg-gray-100 hover:border-gray-300">
-                                    <div class="flex flex-col items-center justify-center pt-7">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="w-12 h-w-12 text-gray-400 group-hover:text-gray-600" fill="none"
-                                            viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                                        </svg>
-                                        <p class="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">
-                                            Attach a file
-                                        </p>
-                                    </div>
-                                    <input type="file" class="opacity-0" />
-                                </label>
-                            </div>
                         </div>
                     </div>
                     <div class="w-full py-14">
@@ -254,8 +256,8 @@
                 </div> --}}
 
                 <div id="tab3" class="tab-content hidden">
-                    <label for="field3">Field 3:</label>
-                    <input type="text" id="field3" name="field3">
+                    {{-- <label for="field3">Field 3:</label>
+                    <input type="text" id="field3" name="field3"> --}}
 
                     {{-- <button id="btn-prev" class="btn-prev">Previous</button> --}}
                     <button id="btn-submit" class="btn-submit" onclick="submitForm()">Submit</button>
@@ -269,30 +271,30 @@
 
     <script src="{{ asset('js/createEvent.js') }}"></script>
     <script>
-        function submitForm() {
-            var formData = new FormData(document.getElementById("myForm"));
+        // function submitForm() {
+        //     var formData = new FormData(document.getElementById("myForm"));
 
-            fetch("{{ route('submit-form') }}", {
-                    method: "POST",
-                    headers: {
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
-                    },
-                    body: formData
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log("Form submitted successfully", data);
-                    // Optionally, you can redirect or perform other actions here
-                })
-                .catch(error => {
-                    console.error("Error submitting form", error);
-                });
-        }
+        //     fetch("{{ route('Event.store') }}", {
+        //             method: "POST",
+        //             headers: {
+        //                 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+        //             },
+        //             body: formData
+        //         })
+        //         .then(response => {
+        //             if (!response.ok) {
+        //                 throw new Error(`HTTP error! Status: ${response.status}`);
+        //             }
+        //             return response.json();
+        //         })
+        //         .then(data => {
+        //             console.log("Form submitted successfully", data);
+        //             // Optionally, you can redirect or perform other actions here
+        //         })
+        //         .catch(error => {
+        //             console.error("Error submitting form", error);
+        //         });
+        // }
 
         function toggleSubmitButton(tabId) {
             var submitButton = document.getElementById('btn-submit');

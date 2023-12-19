@@ -51,7 +51,7 @@
                 LET'S JOIN OUR COMMUNITY, THE BIGGEST TECH COMMUNITY <span class="text-gradPurp">IN THE WORLD!</span>
             </div>
             <div class="py-4">
-                <button class="bg-violet p-2 px-7 rounded-md text-white"><a href="">Join Now!</a></button>
+                <button class="bg-violet p-2 px-7 rounded-md text-white"><a href="{{route('Event.create')}}">Join Now!</a></button>
             </div>
         </div>
         <div class="flex flex-col h-2/3 w-2/3">
