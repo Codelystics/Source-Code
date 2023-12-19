@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,9 @@ Route::get('/bootcamp', function () {
 Route::get('/competition', function () {
     return view('Competition/index');
 });
+
+Route::get('/event', function () {
+    return view('Event/index');
+});
+
+Route::post('/submit-form', [FormController::class, 'submitForm'])->name('submit-form')->middleware('web');
