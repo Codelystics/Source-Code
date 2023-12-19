@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Codelystics Login</title>
+    @vite('resources/css/app.css')
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&display=swap');
         .image-slider img {
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
@@ -37,7 +39,6 @@
             color: #9747FF;
         }
     </style>
-    @vite('resources/css/app.css')
 
 </head>
 <body class="flex items-stretch h-screen">
@@ -66,7 +67,7 @@
         </div>
     @endif
 <div class="w-full md:w-3/5 flex flex-col items-center justify-center bg-gray-800">
-    <div class="w-full md:w-3/5 flex flex-col items-start justify-center bg-gray-800 p-4">
+    <div class="w-full md:w-3/5 flex flex-col items-center justify-center bg-gray-800 p-4">
         <div class="flex items-center mb-4">
             <h1 class="text-4xl font-semibold" style="color: #9747FF;">Login</h1>
             <img src="assets/login/Codelytics-Logo.svg" alt="Image" class="h-full w-full"> <!-- Replace with your image URL -->
@@ -95,8 +96,13 @@
         </div>
     </form>
 
-    <div class="mt-4 flex text-white text-sm justify-center">
-        <p>Don’t have an account? <a href="{{route('register')}}" class="text-violet-600">Register</a></p>
+    <div class="flex flex-row justify-between items-center w-3/5">
+        <div class="mt-4 flex text-white text-sm justify-center">
+            <p>Don’t have an account? <a href="{{route('register')}}" class="text-violet-600">Register</a></p>
+        </div>
+        <div class="mt-4">
+            <a href="{{ url('/') }}" class="text-white">Back</a>
+        </div>
     </div>
 </div>
 
