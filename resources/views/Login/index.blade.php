@@ -51,14 +51,27 @@
 <div class="centered-content">
     <img src="assets/login/contentbanner.svg" alt="Centered Image">
 </div>
-
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 <div class="w-full md:w-3/5 flex flex-col items-center justify-center bg-gray-800">
     <div class="w-full md:w-3/5 flex flex-col items-start justify-center bg-gray-800 p-4">
         <div class="flex items-center mb-4">
             <h1 class="text-4xl font-semibold" style="color: #9747FF;">Login</h1>
             <img src="assets/login/Codelytics-Logo.svg" alt="Image" class="h-full w-full"> <!-- Replace with your image URL -->
         </div>
-    <form method="POST" action="">
+    <form method="POST" action="{{ route('login') }}" enctype="multipart/form-data">
         @csrf
         <div class="text-white mb-4 text-sm">
             <label for="email" class="mb-2">E-mail</label>
@@ -83,7 +96,7 @@
     </form>
 
     <div class="mt-4 flex text-white text-sm justify-center">
-        <p>Don’t have an account? <a href="#" class="text-violet-600">Register</a></p>
+        <p>Don’t have an account? <a href="{{route('register')}}" class="text-violet-600">Register</a></p>
     </div>
 </div>
 
