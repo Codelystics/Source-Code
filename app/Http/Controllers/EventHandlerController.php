@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Traits\Options;
 use Illuminate\Http\Request;
 
 use App\Models\Bootcamp;
@@ -37,9 +38,11 @@ class EventHandlerController extends Controller
             'start' => 'required|date|after:tomorrow',
             'end'=> 'required|date|after:event-start',
             'venue'=> 'required',
-            'banner'=> 'required|max:2048',
+            'banner'=> 'required|image|mimes:jpg,png,jpeg,svg|max:2048',
             'organizer_id' => 'required',
         ]);
+
+        $banner = $request->banner->store(options: 'public');
 
         if($request->type == 'event'){
             $newEvent = Event::create($data);

@@ -18,7 +18,7 @@
             </ul>
         @endif
     </div>
-    <form action="{{route('event.store')}}" method="post">
+    <form action="{{route('event.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         @method('post')
         <div>

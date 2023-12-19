@@ -6,6 +6,7 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Auth\Middleware\Authenticate;
+use App\Http\Controllers\FormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +40,8 @@ Route::post("/register", [SessionController::class, 'createUser'])->name('regist
 Route::get('/main', [EventHandlerController::class, 'index'])->name('event.index');
 Route::get('/create', [EventHandlerController::class,'create'])->name('event.create');
 Route::post('/main', [EventHandlerController::class,'store'])->name('event.store');
+Route::get('/event', function () {
+    return view('Event/index');
+});
+
+Route::post('/submit-form', [FormController::class, 'submitForm'])->name('submit-form')->middleware('web');

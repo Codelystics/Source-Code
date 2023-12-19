@@ -18,8 +18,10 @@ module.exports = {
         'gradPurp': '#AF71F1',
         'lavender': '#93009C',
         'purp': '#B000B2',
+        'ungu': '#9747FF',
         'black': '#000000',
         'yellow': '#F7AF36',
+        'red': '#FF0000',
       }
     },
     plugins: [],
