@@ -87,7 +87,7 @@
                                 <label for="title">Title<span class="text-red">*</span></label>
                                 <input type="text" id="title" name="title" class="input-field">
                             </div>
-                            <div class="flex flex-col justify-center items-start">
+                            {{-- <div class="flex flex-col justify-center items-start">
                                 <label for="category1">Category<span class="text-red">*</span></label>
                                 <select name="category1" id="category1" class="input-field">
                                     <option value="event">Event</option>
@@ -95,12 +95,48 @@
                                     <option value="bootcamp">Bootcamp</option>
                                 </select>
                             </div>
+                            @if()
                             <div class="flex flex-col justify-center items-start">
                                 <label for="category2">Category<span class="text-red">*</span></label>
                                 <select name="category2" id="category2" class="input-field">
                                     <option value="event">Event</option>
                                     <option value="competition">Competition</option>
                                     <option value="bootcamp">Bootcamp</option>
+                                </select>
+                            </div> --}}
+                            <div class="flex flex-col justify-center items-start">
+                                <label for="category1">Category<span class="text-red">*</span></label>
+                                <select name="category1" id="category1" class="input-field" onchange="handleCategoryChange(this)">
+                                    <option value="event">Event</option>
+                                    <option value="competition">Competition</option>
+                                    <option value="bootcamp">Bootcamp</option>
+                                </select>
+                            </div>
+                            
+                            <div id="category2Container" class="flex flex-col justify-center items-start" style="display: none;">
+                                <label for="category2">Sub-category<span class="text-red">*</span></label>
+                                <select name="category2" id="category2" class="input-field">
+                                    <option value="conference">Conference</option>
+                                    <option value="seminar">Seminar</option>
+                                    <option value="talkshow">Talkshow</option>
+                                </select>
+                            </div>
+                            
+                            <div id="category3Container" class="flex flex-col justify-center items-start" style="display: none;">
+                                <label for="category3">Sub-category<span class="text-red">*</span></label>
+                                <select name="category3" id="category3" class="input-field">
+                                    <option value="ctf">Capture The Flag</option>
+                                    <option value="softDev">Software Development</option>
+                                    <option value="hackathon">Hackathon</option>
+                                </select>
+                            </div>
+
+                            <div id="category4Container" class="flex flex-col justify-center items-start" style="display: none;">
+                                <label for="category4">Sub-category<span class="text-red">*</span></label>
+                                <select name="category4" id="category4" class="input-field">
+                                    <option value="frontEnd">Front-End</option>
+                                    <option value="backEnd">Back-End</option>
+                                    <option value="database">Database</option>
                                 </select>
                             </div>
                             <div class="flex flex-col justify-center items-start">
@@ -279,6 +315,26 @@
             } else {
                 preview.src = '';
                 preview.style.display = 'none';
+            }
+        }
+    </script>
+
+    <script>
+        function handleCategoryChange(category1Select) {
+            const selectedValue = category1Select.value;
+
+            // Hide all category containers
+            document.getElementById('category2Container').style.display = 'none';
+            document.getElementById('category3Container').style.display = 'none';
+            document.getElementById('category4Container').style.display = 'none';
+
+            // Show the relevant category container based on the selected value
+            if (selectedValue === 'event') {
+                document.getElementById('category2Container').style.display = 'flex';
+            } else if (selectedValue === 'competition') {
+                document.getElementById('category3Container').style.display = 'flex';
+            } else if (selectedValue === 'bootcamp') {
+                document.getElementById('category4Container').style.display = 'flex';
             }
         }
     </script>
