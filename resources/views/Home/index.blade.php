@@ -47,11 +47,17 @@
             <div class="py-4">
                 <img src="{{ asset('header.svg') }}" alt="">
             </div>
+            @if(Auth::check())
+            <div class="text-white font-extrabold text-5xl py-4">
+                Welcome,  <span class="text-gradPurp">{{ Auth::user()->username  }}</span>
+            </div>
+            @else
             <div class="text-white font-extrabold text-5xl py-4">
                 LET'S JOIN OUR COMMUNITY, THE BIGGEST TECH COMMUNITY <span class="text-gradPurp">IN THE WORLD!</span>
             </div>
+            @endif
             <div class="py-4">
-                <button class="bg-violet p-2 px-7 rounded-md text-white"><a href="">Join Now!</a></button>
+                <button class="bg-violet p-2 px-7 rounded-md text-white"><a href="{{route('Event.create')}}">Join Now!</a></button>
             </div>
         </div>
         <div class="flex flex-col h-2/3 w-2/3">

@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class SessionController extends Controller
 {
     //
-    function loginPage(){
-        return view("login");
+    public function loginPage(){
+        return view("Login.index");
     }
 
     public function authenticate(Request $request){
@@ -24,10 +25,9 @@ class SessionController extends Controller
             'password.required' => 'Please enter your password',
         ]);
         
-        $remember = $request->has('remember'); 
+        $remember = $request->input('remember'); 
         if (Auth::attempt($credentials, $remember)) {
-            $request->session()->regenerate();
-            
+
             return redirect()->intended('/');
         }
  
@@ -40,10 +40,10 @@ class SessionController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('welcome')->with('success', "Logout");
+        return redirect('/')->with('success', "Logout");
     }
     public function registPage(){
-        return view("register");
+        return view("Register.index");
     }
 
     public function createUser(Request $request){
@@ -67,6 +67,6 @@ class SessionController extends Controller
         ];
 
         User::create($data);
-        return redirect("login")->with('success', "User Created Successfully");;
+        return redirect(Route("login"))->with('success', "User Created Successfully");;
     }
 }

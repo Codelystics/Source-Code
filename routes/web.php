@@ -37,19 +37,7 @@ Route::get("/register", [SessionController::class, 'registPage'])->name('registe
 Route::post("/register", [SessionController::class, 'createUser'])->name('register');
 
 # routing untuk view placeholder
-Route::get('/main', [EventHandlerController::class, 'index'])->name('event.index');
-Route::get('/create', [EventHandlerController::class,'create'])->name('event.create');
-Route::post('/main', [EventHandlerController::class,'store'])->name('event.store');
-Route::get('/event', function () {
-    return view('Event/index');
-});
+Route::get('/event', [EventController::class, 'create'])->name('Event.create');
+Route::post('/', [EventController::class,'store'])->name('Event.store');
 
-Route::post('/submit-form', [FormController::class, 'submitForm'])->name('submit-form')->middleware('web');
-
-Route::get('/login', function(){
-    return view('Login/index');
-});
-
-Route::get('/regis', function () {
-    return view('Regis/index');
-});
+// Route::post('/submit-form', [FormController::class, 'submitForm'])->name('submit-form')->middleware('web');

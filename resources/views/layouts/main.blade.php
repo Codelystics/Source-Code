@@ -103,13 +103,19 @@
             </div>
             <div class="flex justify-evenly items-center w-1/4">
                 <li class="w-1/2 flex justify-center">
-                    <div class="flex flex-row justify-end items-center w-full">
-                        <div class="rounded-full w-4 h-4 bg-violet mr-3 blinking-circle"></div>
-                        <div>Verified</div>
-                    </div>
+                    @if(Auth::check())
+                        <div class="flex flex-row justify-end items-center w-full">
+                            <div class="rounded-full w-4 h-4 bg-violet mr-3 blinking-circle"></div>
+                            <div>Verified</div>
+                        </div>
+                    @endif
                 </li>
                 <li>
-                    <button class="bg-violet p-2 px-5 rounded-md"><a href="{{ route('login') }}">Sign Up</a></button>
+                    @if(Auth::check())
+                        <button class="bg-violet p-2 px-5 rounded-md"><a href="{{ route('logout') }}">Logout</a></button>
+                    @else
+                        <button class="bg-violet p-2 px-5 rounded-md"><a href="{{ route('login') }}">Sign Up</a></button>
+                    @endif
                 </li>
             </div>
         </ul>

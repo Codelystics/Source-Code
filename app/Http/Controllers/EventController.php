@@ -39,18 +39,22 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
+        
         $data = $request->validate([
             'name'=>'required', 
             'details'=> 'required',
             'price'=> 'required|numeric',
             'capacity' => 'required|integer',
-            'main_type' => 'required',
             'type'=>'required',
             'start' => 'required|date|after:tomorrow',
             'end'=> 'required|date|after:event-start',
             'venue'=> 'required',
             'banner'=> 'required|image|mimes:jpg,png,jpeg,svg|max:2048',
             'organizer_id' => 'required',
+        ]);
+
+        $types = $request->validate([
+            'main_type' => 'required',
         ]);
 
         $banner = $request->banner->store(options: 'public');
