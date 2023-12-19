@@ -38,6 +38,13 @@ Route::get('/event', function () {
 });
 
 Route::post('/submit-form', [FormController::class, 'submitForm'])->name('submit-form')->middleware('web');
+Route::get('/login', function(){
+    return view('Login/index');
+});
+
+Route::get('/regis', function () {
+    return view('Regis/index');
+});
 
 Route::get('/login', function(){
     return view('Login/index');
