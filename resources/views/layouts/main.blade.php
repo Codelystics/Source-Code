@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,13 +13,19 @@
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&display=swap');
 
         @keyframes blink {
-            0%, 50%, 100% {
-            opacity: 1;
+
+            0%,
+            50%,
+            100% {
+                opacity: 1;
             }
-            25%, 75% {
+
+            25%,
+            75% {
                 opacity: 0;
             }
         }
+
         .blinking-circle {
             animation: blink 4s infinite;
         }
@@ -29,10 +36,11 @@
         }
 
         .hide-scrollbar::-webkit-scrollbar {
-            display: none; 
+            display: none;
         }
+
         .carousel-wrapper {
-            width: 100%; 
+            width: 100%;
             overflow: hidden;
         }
 
@@ -43,14 +51,17 @@
 
         .slide-row {
             display: flex;
-            overflow: hidden; /* Jika lebar total logo lebih besar, hilangkan overflow */
+            overflow: hidden;
+            /* Jika lebar total logo lebih besar, hilangkan overflow */
             flex-shrink: 0;
         }
 
         .slide {
-            filter: grayscale(100%); /* Set default state to grayscale */
+            filter: grayscale(100%);
+            /* Set default state to grayscale */
             transition: filter 0.3s ease;
-            flex: 0 0 10%; /* Atur lebar setiap logo, contoh: 20% dari lebar viewport */
+            flex: 0 0 10%;
+            /* Atur lebar setiap logo, contoh: 20% dari lebar viewport */
             max-width: 100%;
             height: auto;
         }
@@ -63,8 +74,10 @@
             0% {
                 transform: translateX(0);
             }
+
             100% {
-                transform: translateX(-100%); /* Geser gambar sejauh 100% lebar viewport */
+                transform: translateX(-100%);
+                /* Geser gambar sejauh 100% lebar viewport */
             }
         }
 
@@ -76,15 +89,16 @@
             0% {
                 transform: translateX(-100%);
             }
+
             100% {
                 transform: translateX(0);
             }
         }
-
     </style>
 
 </head>
-<body>
+
+<body onload="typeWriterOnLoad()">
     <nav class="flex flex-col h-24">
         <ul class="flex flex-row justify-around h-24 items-center text-white">
             <div class="flex justify-evenly w-1/4">
@@ -103,15 +117,17 @@
             </div>
             <div class="flex justify-evenly items-center w-1/4">
                 <li class="w-1/2 flex justify-center">
-                    @if(Auth::check())
+                    @if (Auth::check())
                         <div class="flex flex-row justify-end items-center w-full">
                             <div class="rounded-full w-4 h-4 bg-violet mr-3 blinking-circle"></div>
                             <div>Verified</div>
                         </div>
+                    @else
+                        <p id="typeText"></p>
                     @endif
                 </li>
                 <li>
-                    @if(Auth::check())
+                    @if (Auth::check())
                         <button class="bg-violet p-2 px-5 rounded-md"><a href="{{ route('logout') }}">Logout</a></button>
                     @else
                         <button class="bg-violet p-2 px-5 rounded-md"><a href="{{ route('login') }}">Sign Up</a></button>
@@ -146,5 +162,49 @@
             All Rights Reserved Codelystics 2023 © Codelystics
         </div>
     </div>
+
+    <script>
+        var currentTextIndex = 0;
+        var i = 0;
+        var txt = [
+            'Hello Developers!',
+            'Welcome to Codelystics!',
+            'We are here to help you!',
+            'Join us now!'
+        ];
+        var speed = 100;
+        var delayBetweenStrings = 3000;
+
+        function typeWriter() {
+            if (i < txt[currentTextIndex].length) {
+                document.getElementById("typeText").innerHTML += txt[currentTextIndex].charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            } else {
+                setTimeout(function() {
+                    removeText();
+                }, delayBetweenStrings);
+            }
+        }
+
+        function removeText() {
+            var currentText = document.getElementById("typeText").innerHTML;
+            if (currentText.length > 0) {
+                document.getElementById("typeText").innerHTML = currentText.slice(0, -1);
+                setTimeout(removeText, speed);
+            } else {
+                currentTextIndex = (currentTextIndex + 1) % txt.length;
+
+                i = 0;
+
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        function typeWriterOnLoad() {
+            typeWriter();
+        }
+    </script>
 </body>
+
 </html>
