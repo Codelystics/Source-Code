@@ -24,10 +24,9 @@ class SessionController extends Controller
             'password.required' => 'Please enter your password',
         ]);
         
-        $remember = $request->has('remember'); 
+        $remember = $request->input('remember'); 
         if (Auth::attempt($credentials, $remember)) {
-            $request->session()->regenerate();
-            
+
             return redirect()->intended('/');
         }
  
