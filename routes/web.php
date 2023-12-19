@@ -24,3 +24,11 @@ Route::get('/bootcamp', function () {
 Route::get('/competition', function () {
     return view('Competition/index');
 });
+
+Route::get('/login', function(){
+    return view('Login/index');
+});
+
+Route::get('/regis', function () {
+    return view('Regis/index');
+});

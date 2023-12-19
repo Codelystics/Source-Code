@@ -108,7 +108,7 @@
                     </div>
                 </li>
                 <li>
-                    <button class="bg-violet p-2 px-5 rounded-md"><a href="">Sign Up</a></button>
+                    <button class="bg-violet p-2 px-5 rounded-md"><a href="{{ asset('/login') }}">Sign Up</a></button>
                 </li>
             </div>
         </ul>
