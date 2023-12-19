@@ -23,8 +23,9 @@ class SessionController extends Controller
             'email.email' => 'Please enter a valid email',
             'password.required' => 'Please enter your password',
         ]);
- 
-        if (Auth::attempt($credentials)) {
+        
+        $remember = $request->has('remember'); 
+        if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
             
             return redirect()->intended('/');
@@ -35,8 +36,10 @@ class SessionController extends Controller
         ])->onlyInput('email');
     }
 
-    public function logout(){
+    public function logout(Request $request){
         Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect('welcome')->with('success', "Logout");
     }
     public function registPage(){
