@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -39,7 +40,7 @@ class SessionController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('welcome')->with('success', "Logout");
+        return redirect('/')->with('success', "Logout");
     }
     public function registPage(){
         return view("Register.index");
@@ -66,6 +67,6 @@ class SessionController extends Controller
         ];
 
         User::create($data);
-        return redirect("Login.index")->with('success', "User Created Successfully");;
+        return redirect(Route("login"))->with('success', "User Created Successfully");;
     }
 }
