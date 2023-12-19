@@ -185,9 +185,16 @@
                     <div class="flex flex-row justify-around">
                         <div class="flex flex-col w-1/2 gap-6">
                             <p>Input Event Details</p>
-                            <div class="flex flex-col justify-center items-start">
-                                <label for="duration">Post Duration<span class="text-red">*</span></label>
-                                <input type="text" id="duration" name="duration" class="input-field">
+                            <label for="duration">Post Duration<span class="text-red">*</span></label>
+                            <div class="flex flex-row justify-between items-center w-full">
+                                <div class="flex flex-col justify-center items-start w-1/2">
+                                    <label for="start">Start<span class="text-red">*</span></label>
+                                    <input type="datetime-local" id="start" name="start" class="input-field">
+                                </div>
+                                <div class="flex flex-col justify-center items-start w-1/2">
+                                    <label for="End">End<span class="text-red">*</span></label>
+                                    <input type="datetime-local" id="End" name="End" class="input-field">
+                                </div>
                             </div>
                             <div class="flex flex-col justify-center items-start">
                                 <label for="price">Ticket Price<span class="text-red">*</span></label>
