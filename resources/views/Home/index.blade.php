@@ -272,11 +272,11 @@
         </div>
         <div class="flex flex-col gap-8 pt-14 justify-center">
             <div class="accordion-item cursor-pointer mx-40 border-plum rounded-xl border-4">
-                <div class="flex justify-around items-center h-36 text-xl">
-                    <div>
+                <div class="flex justify-around items-center h-36 text-xl w-full">
+                    <div class="w-1/5">
                         <img src="{{ asset('Netflix.svg') }}" alt="">
                     </div>
-                    <div class="flex flex-col justify-center items-start">
+                    <div class="flex flex-col justify-center items-start w-1/5">
                         <div class="text-4xl text-purp">
                             {{-- Ini title --}}
                             Netflix - Documentation
@@ -286,11 +286,11 @@
                             Seminar held by Netflix Indonesia
                         </div>
                     </div>
-                    <div class="text-6xl text-yellow font-bold">
+                    <div class="text-6xl text-yellow font-bold w-1/5">
                         {{-- Ini tanggal --}}
                         18
                     </div>
-                    <div class="flex flex-col justify-center items-start">
+                    <div class="flex flex-col justify-center items-start w-1/5">
                         <div class="text-4xl text-white">
                             {{-- Ini bulan --}}
                             December
@@ -301,13 +301,15 @@
                         </div>
                     </div>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <!-- Original arrow -->
-                        <path class="arrow" d="M6 9l6 6l6 -6" stroke="#fff" />
-                        <!-- Upside-down arrow (hidden by default) -->
-                        <path class="arrow hidden" d="M6 15l6 -6l6 6" stroke="#fff" />
-                    </svg>                    
+                    <div class="w-1/5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <!-- Original arrow -->
+                            <path class="arrow" d="M6 9l6 6l6 -6" stroke="#fff" />
+                            <!-- Upside-down arrow (hidden by default) -->
+                            <path class="arrow hidden" d="M6 15l6 -6l6 6" stroke="#fff" />
+                        </svg>
+                    </div>                    
                 </div>
                 <div class="p-2 hidden toggle">
                     <div class="flex flex-col px-16 gap-8 pb-10">
