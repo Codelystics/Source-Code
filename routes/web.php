@@ -40,5 +40,12 @@ Route::post("/register", [SessionController::class, 'createUser'])->name('regist
 Route::get('/event', [EventController::class, 'create'])->name('Event.create');
 Route::post('/', [EventController::class,'store'])->name('Event.store');
 
-
 Route::post('/submit-form', [FormController::class, 'submitForm'])->name('submit-form')->middleware('web');
+
+Route::get('/login', function(){
+    return view('Login/index');
+});
+
+Route::get('/regis', function () {
+    return view('Regis/index');
+});
